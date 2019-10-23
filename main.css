@@ -1,5 +1,12 @@
 #url_input-area {
-	margin: 0 auto;
+	margin: 20px auto;
+	width: 700px;
+	max-width: 80vw;
+	height: 400px;
+}
+
+#url_output-area {
+	margin: 20px auto;
 	width: 700px;
 	max-width: 80vw;
 	height: 400px;
