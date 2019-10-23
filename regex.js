@@ -1,3 +1,9 @@
+
+document.querySelector('#url_submit-btn').click(() => {
+	event.location.preventDefault();
+});
+
+
 var urls = "https://www.hello.com/my_hello_domain/?red+3=204 HTTP://www.bobsburger.com/thank-you/hello(329)&&& https://www.hello.com/shop/sneakers/blue?9838202&red=20003 http://www.myname.com/index.html http://sub.domain.net/?param1=foo/";
 
 //Splits the URLS by space(s) newline(s) and adds them to an array
