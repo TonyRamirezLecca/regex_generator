@@ -24,8 +24,6 @@ document.querySelector('.form_submit-btn').addEventListener('click', () => {
 	//Begin error checking and generating RegEx
 	try {
 		//Counts Url
-		const url_count = url_split.length - 1;
-		console.log("URL Count:", url_count);
 
 		url_split.forEach((el, i) => {
 			//Error Testing
@@ -57,17 +55,32 @@ document.querySelector('.form_submit-btn').addEventListener('click', () => {
 		//escape regex characters e.g. ? . + / ( ) [ ] 
 		var adjustment = 0;
 		[...regex_string].forEach((el, i) => {
-
 			if (el.match(/[\?\.\+\/\(\)\[\]]/)) {
 				regex_string = regex_string.slice(0, i + adjustment) + "\\" + regex_string.slice(i + adjustment);
 				adjustment++;
 			}
-
 		});
 
+
+
+		//Places regex text in output textarea
 		document.querySelector('#url_output-area').value = regex_string;
+		//Submit button turns green
+		document.querySelector('#url_submit-btn').classList.add('submit_success-btn');
+		document.querySelector('#url_submit-btn').setAttribute('value', 'Success');
+		//Removes Error Class
+		document.querySelector('#url_submit-btn').classList.remove('submit_error-btn');
+
 
 	} catch(err) {
+		//Places error text in output textarea
 		document.querySelector('#url_output-area').value = err;
+		//Submit button turns red 
+		document.querySelector('#url_submit-btn').classList.add('submit_error-btn');
+		document.querySelector('#url_submit-btn').setAttribute('value', 'Error');
+		//Removes Success Class
+		document.querySelector('#url_submit-btn').classList.remove('submit_success-btn');
 	}
 });
+
+
