@@ -41,7 +41,9 @@ document.querySelector('.form_submit-btn').addEventListener('click', () => {
 			el = el.replace(/(http|https):\/\/[\w-]+\.[\w-]+\.\w+(\/)?/i, '/');	
 
 			//If there is only a '/' is the url, that means there's no path. So don't make regex for it.
-			if ( el.length == '1') return; 
+			//if ( el.length == '1') return; 
+			//COMMENTED OUT ^^^ LINE ABOVE BECAUSE IF THERE IS NO PATH THAT MEANS THEY WANT TO TARGET HOMEPAGE
+
 			regex_string = regex_string.concat(el, '|');
 		});
 
