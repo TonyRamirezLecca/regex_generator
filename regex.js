@@ -27,7 +27,7 @@ document.querySelector('.form_submit-btn').addEventListener('click', () => {
 
 		url_split.forEach((el, i) => {
 			//Error Testing
-			var url_check =	el.search(/(http|https):\/\/[\w-]+\.[\w-]+\.\w+/i);
+			var url_check =	el.search(/(http|https):\/\/([\w-]+\.)?[\w-]+\.\w+/i);
 			if (url_check == -1)  { //-1 means there was no match, therefore no complete url.
 				if (!el){
 					empty_element = true; //Checks for empty array (The exception to this url_check)
@@ -38,7 +38,7 @@ document.querySelector('.form_submit-btn').addEventListener('click', () => {
 			}
 
 			//Cut domain out of url
-			el = el.replace(/(http|https):\/\/[\w-]+\.[\w-]+\.\w+(\/)?/i, '/');	
+			el = el.replace(/(http|https):\/\/([\w-]+\.)?[\w-]+\.\w+(\/)?/i, '/');	
 
 			//If there is only a '/' is the url, that means there's no path. So don't make regex for it.
 			//if ( el.length == '1') return; 
